@@ -1,0 +1,8 @@
+{
+    name          = "Open Url";
+    uuid          = "F84D472F-164A-48E7-8EC5-F46212A310D8";
+    keyEquivalent = "^o";
+    input         = "canonical";
+    environment   = "MM_FROM=${from}\nMM_TO=${to}\nMM_SUBJECT=${subject}\nMM_DATE=${date}";
+    command       = '#!/bin/bash\n"${MM_BUNDLE_SUPPORT}/bin/open_url"';
+}

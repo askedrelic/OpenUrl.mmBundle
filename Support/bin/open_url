@@ -1,0 +1,18 @@
+#!/usr/bin/python
+try:
+  import subprocess
+  import sys
+  import re
+  output = ''
+  body = sys.stdin.read()
+  urls = re.findall('http[s]?://(?:[a-zA-Z]|[0-9]|[$-_@.&+]|[!*\(\),]|(?:%[0-9a-fA-F][0-9a-fA-F]))+', body)
+  url = urls[0]
+  output = url
+
+  # subprocess.call('echo {} | pbcopy'.format(urls), shell=True)
+  # subprocess.call('/usr/local/bin/terminal-notifier -message "$@" "{}"'.format(output), shell=True)
+  subprocess.call('open "{}"'.format(output), shell=True)
+except Exception as e:
+  subprocess.call('/usr/local/bin/terminal-notifier -message "$@" "{}"'.format(output), shell=True)
+  # subprocess.call("echo {} >> /tmp/mmlog ".format(e), shell=True)
+
